@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoToFaculty</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="../static/js/app.js" defer></script>
+</head>
+</head>
+<body>
+    <div class="container">
+    <header>
+        <h1>Twój wydział to:</h1>
+    </header>
+    <main>
+        <section id="result-section">
+            <h2 id="result">{{ faculty }}</h2>
+            <a href="{{ url_for('index') }}"><button id="back-btn">Wróć</button></a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 GoToFaculty</p>
+    </footer>
+    </div>
+</body>
+</html>

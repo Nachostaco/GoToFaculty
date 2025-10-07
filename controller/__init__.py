@@ -1,0 +1,1 @@
+from .pred_controller import PredictionController
