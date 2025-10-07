@@ -4,10 +4,9 @@ import torch
 
 
 class ModelApi:
-    def __init__(self, model_path, tokenizer_path, embedding_path):
+    def __init__(self, model_path, tokenizer_path):
         self.model_path = model_path
         self.tokenizer_path = tokenizer_path
-        self.embedding_path = embedding_path
         self.knn = self.load_model()
         self.tokenizer = self.load_tokenizer()
         self.embedding_model = self.load_embedding_model()
