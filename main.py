@@ -26,7 +26,6 @@ async def startup_event():
 async def lifespan(app: FastAPI):
     await startup_event()
     yield
-    await shutdown_event()
 
 
 @app.get("/")
