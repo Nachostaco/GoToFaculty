@@ -44,7 +44,9 @@ async def predict_endpoint(request):
     result = await controller.get_prediction(request_data)
     return result
 
-@app.get('/health')
+@app.get('/api/health')
 async def health_endpoint():
     return await controller.health_check()
+
+
 

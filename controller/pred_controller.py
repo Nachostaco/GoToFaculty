@@ -16,14 +16,17 @@ class PredictionController:
         self.model_api = model_api
         pass
 
-    def concatenate_questions(self, request: PredictionRequest) -> str:
-        text = f"{request.question1} {request.question2} {request.question3} {request.question4} {request.question5}"
+    def concatenate_questions(self, request: dict) -> str:
+        text = f"{request['question1']} {request['question2']} {request['question3']} {request['question4']} {request['question5']}"
         return text.strip()
 
-    async def get_prediction(self, request: PredictionRequest) -> PredictionResponse:
+    async def get_prediction(self, request: dict) -> PredictionResponse:
+        print(request)
+        required_fields = ['question1', 'question2', 'question3', 'question4', 'question5']
         try:
-            if not all([request.question1, request.question2, request.question3, request.question4, request.question5]):
-                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="All questions must be provided")
+            for field in required_fields:
+                if field not in request or not request[field].strip():
+                    raise ValueError(f"{field} is required and cannot be empty")
             input = self.concatenate_questions(request)
             prediction = self.model_api.predict(input)
             if prediction is None:
