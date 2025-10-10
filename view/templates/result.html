@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoToFaculty</title>
-    <link rel="stylesheet" href="../static/css/style.css">
-    <script src="../static/js/app.js" defer></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/result.js" defer></script>
 </head>
 </head>
 <body>
@@ -17,7 +17,7 @@
     <main>
         <section id="result-section">
             <h2 id="result">{{ faculty }}</h2>
-            <a href="{{ url_for('index') }}"><button id="back-btn">Wróć</button></a>
+            <a href="{{ url_for('home') }}"><button id="back-btn">Wróć</button></a>
         </section>
     </main>
     <footer>
