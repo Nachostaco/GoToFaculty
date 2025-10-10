@@ -8,6 +8,5 @@ function DisplayResult() {
         document.getElementById('result-container').innerText = 'No result data found.';
         return;
     }
-    document.getElementById('result').innerText = resultData.prediction + ' - ' + resultData.faculty;
-    document.body.style.background = `linear-gradient(135deg, ${resultData.color} 0%, #000000 100%)`;
+    document.getElementById('result').innerText = resultData.prediction;
 }
