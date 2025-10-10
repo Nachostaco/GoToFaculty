@@ -10,10 +10,8 @@ class PredictionRequest(BaseModel):
 
 class PredictionResponse(BaseModel):
     prediction: int
-
     faculty: str
     color: str
-
 
     
 class PredictionController:
@@ -28,11 +26,9 @@ class PredictionController:
 
     async def get_prediction(self, request: PredictionRequest) -> PredictionResponse:
         print(f"{request} controller1")
-        required_fields = ['question1', 'question2', 'question3', 'question4', 'question5']
         try:
-            for field in required_fields:
-                if not getattr(request, field, "").strip():
-                    raise ValueError(f"{field} is required and cannot be empty")
+            if not all([request.question1, request.question2, request.question3, request.question4, request.question5]):
+                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="All questions must be provided")
             input = self.concatenate_questions(request)
             print(f"{input} controller2")
             prediction = self.model_api.predict(input)
