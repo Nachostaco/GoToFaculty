@@ -10,13 +10,17 @@ class PredictionRequest(BaseModel):
 
 class PredictionResponse(BaseModel):
     prediction: int
+
     faculty: str
     color: str
+
+
     
 class PredictionController:
     def __init__(self, model_api) -> None:
         self.model_api = model_api
         pass
+
 
     def concatenate_questions(self, request: PredictionRequest) -> str:
         text = f"{request.question1} {request.question2} {request.question3} {request.question4} {request.question5}"
@@ -49,6 +53,7 @@ class PredictionController:
             }
             color = colors.get(str(prediction[0]), "#ffffff")
             return PredictionResponse(prediction=int(prediction[0]), faculty=mapping.get(str(prediction[0]), "Unknown"), color=color)
+
         except Exception as e:
             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
         

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoToFaculty</title>
-    <link rel="stylesheet" href="../static/css/style.css">
-    <script src="../static/js/app.js" defer></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/app.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -24,7 +24,10 @@
             <textarea id="question4" class="question-textarea" placeholder="Zadaj pytanie..."></textarea>
             <p class="question">Jaka jest twoja pierwsza reakcja w obliczu konfliktu?</p>
             <textarea id="question5" class="question-textarea" placeholder="Zadaj pytanie..."></textarea>
-            <button id="submit-btn">Dowiedz się do jakiego wydziału należysz</button>
+            <button id="submit-btn" onclick="predictText()">Dowiedz się do jakiego wydziału należysz</button>
+        </section>
+        <div id="loading-indicator" class="hidden">Przetwarzanie...</div>
+        <div id="error-message" class="hidden"></div>
     </main>
     <footer>
         <p>&copy; 2025 GoToFaculty</p>
