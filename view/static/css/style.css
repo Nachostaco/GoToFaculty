@@ -107,14 +107,3 @@ button:disabled {
 .hidden {
     display: none;
 }
-
-.question {
-    margin-bottom: 15px;
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-    font-family: inherit;
-    resize: vertical;
-}
